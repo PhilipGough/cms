@@ -1,0 +1,29 @@
+{
+  "name": "BetterBetting",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "angular-cookies": "latest",
+    "angular-dynamic-locale": "latest",
+    "angular-translate": "latest",
+    "angular-translate-storage-cookie": "latest",
+    "angular-translate-storage-local": "latest",
+    "angular-translate-loader-static-files": "latest",
+    "angular-translate-interpolation-messageformat": "latest",
+    "angular": "~1.4.7",
+    "angular-ui-router": "latest",
+    "angular-bootstrap": "~0.13.4",
+    "angular-flash-alert": "~1.1.1",
+    "font-awesome": "~4.1.0",
+    "angular-ui-router-styles": "~0.0.6",
+    "angular-messages": "~1.4.8",
+    "nya-bootstrap-select": "~2.1.2",
+    "angular-spinkit": "^0.3.3",
+    "ng-dialog": "^0.5.8",
+    "angularUtils-pagination": "angular-utils-pagination#^0.10.0"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "1.4.9"
+  }
+}
