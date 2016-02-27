@@ -7,16 +7,19 @@ var CMS = angular.module('CMS', [
   'ngCookies',
   'pascalprecht.translate',
   'CMS.home',
+  'CMS.create',
   'flash',
   'ngMessages',
   'nya.bootstrap.select',
   'angular-spinkit',
   'ngDialog',
-  'angularUtils.directives.dirPagination'
+  'angularUtils.directives.dirPagination',
+  'formly',
+  'formlyBootstrap'
 ]);
 
 
-CMS.config(function($stateProvider, $locationProvider,$httpProvider,
+CMS.config(function($stateProvider, $locationProvider,$httpProvider,formlyConfigProvider,
                      $urlRouterProvider, $translateProvider, $compileProvider){
 
   $urlRouterProvider.otherwise('/home');
@@ -29,7 +32,7 @@ CMS.config(function($stateProvider, $locationProvider,$httpProvider,
     data : {
       restricted: false
     },
-    abstract: false,
+    abstract: true,
     templateUrl: 'partials/main.tpl.html',
     controller: 'MainCtrl'
   });
@@ -45,6 +48,42 @@ CMS.config(function($stateProvider, $locationProvider,$httpProvider,
     .useLocalStorage()
     .useStaticFilesLoader({ prefix: '/copy/', suffix: '.json' })
     .useSanitizeValueStrategy('escaped');
+
+
+    formlyConfigProvider.setType({
+      name: 'groupedSelect',
+      templateUrl: 'partials/selects/eventType.tpl.html'
+    });
+
+    formlyConfigProvider.setType({
+      name: 'attendee',
+      template: '<attendee-position></attendee-position>'
+    });
+
+    formlyConfigProvider.setType({
+      name: 'entries',
+      template: '<overview-entries></overview-entries>'
+    });
+
+    formlyConfigProvider.setType({
+      name: 'overviewMeta',
+      template: '<overview-meta></overview-meta>'
+    });
+
+    formlyConfigProvider.setType({
+      name: 'offerings',
+      template: '<offerings-sec></offerings-sec>'
+    });
+
+    formlyConfigProvider.setType({
+      name: 'templateMeta',
+      template: '<template-styling></template-styling>'
+    });
+
+    formlyConfigProvider.setType({
+      name: 'another',
+      templateUrl: 'partials/selects/cssSelect.tpl.html'
+    });
 });
 
 CMS.run(function($rootScope, $state, $stateParams){

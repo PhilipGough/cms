@@ -1,3 +1,7 @@
+/**
+ * This service intercepts HTTP requests and adds the appropriate headers
+ * for communicating with the Parse REST API
+ */
 'use strict';
 angular.module('CMS')
 

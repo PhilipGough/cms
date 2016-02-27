@@ -32,3 +32,21 @@ footer {
         padding: 15px 10px;
     }
 }
+
+/* css/style.css */
+
+.container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    top: 20px;
+    -webkit-box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
+}
+
+.formly.row{
+  display:block;
+}
+
+.formly-field.section-label {
+  margin-bottom: 8px
+}

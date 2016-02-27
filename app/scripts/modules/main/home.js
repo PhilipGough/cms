@@ -14,7 +14,8 @@ angular.module('CMS.home', [])
   });
 })
 
-.controller('HomeCtrl', [ 'restFactory', 'Flash', '$timeout', 'ngDialog', '$scope', function(restFactory, Flash, $timeout, ngDialog, $scope) {
+.controller('HomeCtrl', [ 'restFactory', 'Flash', '$timeout', 'ngDialog', '$scope', '$state',
+                  function(restFactory, Flash, $timeout, ngDialog, $scope, $state) {
 
   var vm = this;
   vm.loading = true;
@@ -53,10 +54,7 @@ angular.module('CMS.home', [])
    * Will route the user to a different state
    */
   vm.create = function() {
-    restFactory.makePOSTrequest('ent_dev', 'ent_dev.json')
-    .then(function(data){
-
-    });
+    $state.go('main.create')
   };
 
   vm.pageCtrl = function() {

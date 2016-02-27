@@ -1,7 +1,9 @@
 {
   "name": "BetterBetting",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "angular-formly": "^7.5.0"
+  },
   "devDependencies": {
     "angular-dev-server": "^0.2.0",
     "browser-sync": "1.9.0",

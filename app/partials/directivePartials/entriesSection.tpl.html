@@ -1,0 +1,68 @@
+<div ng-if="vm.data.length > 0" class="row">
+  <div class="alert alert-info">
+    The table below show entries which will be shown to the reader in the header section if made visible.
+    These entries can be modified, deleted or hidden as required.
+  </div>
+  <table class="table table-bordered table-responsive table-condensed">
+    <thead>
+      <tr>
+        <th>Visible</th>
+        <th>Content</th>
+        <th>Modify</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="data in vm.data track by $index">
+      <tr>
+        <td>{{data.visible}}</td>
+        <td ng-bind-html="data.text | trust" >{{data.text | trust}}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" ng-click="vm.editEntry($index)">
+            <i class="fa fa-pencil"></i>&nbsp; Edit
+          </button>
+          <button class="btn btn-sm btn-danger" ng-click="vm.deleteEntry($index)">
+            <i class="fa fa-trash-o"></i>&nbsp; Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+<div class="alert alert-info">
+<h4><u>This section allows you to add formatted entries into the overview header</u></h4>
+<p>The formatted text you enter below will appear styled exactly the same to the end user. Multiple entries can be included and made visible or otherwise. </p>
+</div>
+</br>
+
+<form  method="post">
+  <textarea  ui-tinymce ng-model="vm.tinymceModel"></textarea>
+</form>
+</br>
+<div class="row">
+  <div class="col-sm-7">
+  <div class="checkbox alert alert-warning">
+    <label>
+      <input id="editFocus" type="checkbox" ng-model="vm.showEntry">
+      Would you like this entry to be visible to the end user?
+    </label>
+  </div>
+  </div>
+
+    <div class="col-sm-3">
+    <label> Align text on screen
+     <ol class="nya-bs-select" ng-model="vm.textPosition">
+       <li nya-bs-option="(key,value) in vm.textPositionOptions">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+</div>
+</br>
+<button type="button" ng-click="vm.addEntry()" class="btn btn-primary btn-block">{{vm.buttonState}}</button>
+<hr>

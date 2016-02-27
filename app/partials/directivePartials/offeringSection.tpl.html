@@ -1,0 +1,179 @@
+<hr>
+<div class="alert alert-info">
+  Use the dropdown menus below to add optional styling to the columns.
+</div>
+
+<div class ="row">
+  <div class="col-sm-4 col-sm-offset-1">
+    <label> Modify background colour
+     <ol class="nya-bs-select" ng-change="vm.makeCssChange()" ng-model="vm.chosenBckColor">
+       <li nya-bs-option="(key,value) in vm.bckgClrOptions">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+
+<div class="col-sm-4 col-sm-offset-1">
+  <label> Modify corners
+    <ol class="nya-bs-select" ng-change="vm.makeCssChange()" ng-model="vm.chosenRadius">
+      <li nya-bs-option="(key,value) in vm.cornerOpts">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+</div>
+
+<hr>
+<div class="alert alert-info">
+  Use the dropdown menus below to add optional styling to the items.
+</div>
+
+<div class ="row">
+  <div class="col-sm-2">
+    <label> Modify border colour
+     <ol class="nya-bs-select" ng-change="vm.makeItemCssChange()" ng-model="vm.itemchosenBorderClr">
+       <li nya-bs-option="(key,value) in vm.borderClrs">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+
+<div class="col-sm-2 col-sm-offset-2">
+  <label> Modify border type
+    <ol class="nya-bs-select" ng-change="vm.makeItemCssChange()" ng-model="vm.itemchosenBorderType">
+      <li nya-bs-option="(key,value) in vm.borderTypes">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+
+<div class="col-sm-2 col-sm-offset-2">
+  <label> Modify corners
+    <ol class="nya-bs-select" ng-change="vm.makeItemCssChange()" ng-model="vm.itemchosenRadius">
+      <li nya-bs-option="(key,value) in vm.cornerOpts">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+</div>
+
+<hr>
+<div class="row"  ng-if="vm.info.data.length > 0">
+  <div class="alert alert-info">
+    The table in this section shows offerings which have been added to this event.
+  </div>
+
+  <div class="col-sm-12 column">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr >
+          <th>Visible</th>
+          <th class="text-center">Main Text</th>
+          <th class="text-center">Sub-Text</th>
+          <th class="text-center">Modify</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="data in vm.info.data track by $index">
+        <tr>
+          <td>{{data.visible}}</td>
+          <td>{{data.lines[0].text}}</td>
+          <td>{{data.lines[1].text}}</td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-warning" ng-click="vm.removeOffering($index)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr>
+<div class="alert alert-info">
+  This section allows the creation of offerings which can be displayed or hidden from the reader.
+  Each offering can consist of multiple lines of text. Click the button below to create and add a new offering, which will be added to the table above.
+</div>
+
+<button ng-if="!vm.addOffering" type="button" class="btn btn-block btn-info" ng-click="vm.readerAddOffering()">Add Offering</button>
+</br>
+
+<div ng-if="vm.addOffering">
+<div class="row alert alert-warning">
+  <form name="thisForm" class="form">
+    <div class="col-sm-8">
+      <label for="mainText">Main text *</label>
+      <input type="text" class="form-control" id="mainText" ng-model="vm.mainText" placeholder="Enter main text here!" required>
+    </div>
+    <div class="col-sm-3">
+      <label for="fs"> Select font size</label>
+      <ol class="nya-bs-select" ng-change="vm.makeItemCssChange()" id="fs" ng-model="vm.mainSize">
+        <li nya-bs-option="(key,value) in vm.fontSize">
+          <!-- the text content of anchor element will be used for search -->
+          <a>
+            {{ key }}
+            <span class="glyphicon glyphicon-ok check-mark"></span>
+          </a>
+        </li>
+      </ol>
+    </div>
+    <div class="col-sm-8">
+      <label for="subtext">Sub-text *</label>
+      <input type="text" class="form-control" id="subtext" ng-model="vm.subText" placeholder="Enter sub-text here" required>
+    </div>
+    <div class="col-sm-3">
+      <label for="fs"> Select font size</label>
+      <ol class="nya-bs-select" ng-change="vm.makeItemCssChange()" id="fs" ng-model="vm.subSize">
+        <li nya-bs-option="(key,value) in vm.fontSize">
+          <!-- the text content of anchor element will be used for search -->
+          <a>
+            {{ key }}
+            <span class="glyphicon glyphicon-ok check-mark"></span>
+          </a>
+        </li>
+      </ol>
+    </div>
+</div>
+    <div class="alert alert-warning">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="vm.showOffering">
+          Do you want to make this offering visible to the reader?
+        </label>
+      </div>
+    </div>
+
+    <div class="row" >
+      <div class="col-sm-2">
+      <button type="button" ng-click="vm.cancelAdd()" class="btn btn-danger btn-sm">Cancel</button>
+    </div>
+    <div class="col-sm-8 col-sm-offset-2">
+    <button type="submit" ng-disabled="thisForm.$invalid "ng-click="vm.add()" class="btn btn-success btn-block">Add</button>
+  </div>
+</div>
+</form>
+</div>
+<hr>

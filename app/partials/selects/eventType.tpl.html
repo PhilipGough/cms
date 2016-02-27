@@ -1,0 +1,11 @@
+<div><strong>{{options.templateOptions.label}}</strong></div>
+ <ol class="nya-bs-select col-sm-4 col-xs-4 col-md-4 col-lg-4" ng-model="model[options.key || index]"
+    title="{{options.name}}">
+     <li nya-bs-option="option in  options.templateOptions.options track by $index">
+        <a>
+            <span>{{option}}</span>
+            <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+    </li>
+</ol>
+<hr>

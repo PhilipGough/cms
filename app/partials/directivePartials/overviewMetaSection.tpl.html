@@ -1,0 +1,45 @@
+<div class="alert alert-warning">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="vm.showSection">
+      Would you like to make offerings section visible to end user?
+    </label>
+  </div>
+</div>
+<hr>
+<div class="alert alert-info">
+  Use the dropdown menus below to add optional styling to this section.
+</div>
+
+<div class ="row">
+  <div class="col-sm-4 col-sm-offset-1">
+    <label> Modify background colour
+     <ol class="nya-bs-select" ng-change="vm.makeCssChange()" ng-model="vm.chosenBckColor">
+       <li nya-bs-option="(key,value) in vm.bckgClrOptions">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+
+<div class="col-sm-4 col-sm-offset-1">
+  <label> Modify corners
+    <ol class="nya-bs-select" ng-change="vm.makeCssChange()" ng-model="vm.chosenRadius">
+      <li nya-bs-option="(key,value) in vm.cornerOpts">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+</div>
+<hr>
+
+

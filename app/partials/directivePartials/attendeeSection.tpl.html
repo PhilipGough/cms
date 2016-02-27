@@ -1,0 +1,40 @@
+<hr>
+<div class="col-sm-12 column" ng-if="model.positions.length > 0">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr >
+        <th>Id</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Modify</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="person in model.positions">
+      <tr>
+        <td>{{person.id}}</td>
+        <td>{{person.name}}</td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-warning" ng-click="removePosition(person.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div ng-if="model.positions.length < 1">
+  <h3>No positions have been added.</h3>
+</div>
+
+
+<div class="row">
+ <div class="col-sm-10 col-sm-offset-1 ">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Insert a new position" ng-model="position.value">
+    <span class="input-group-btn">
+      <button class="btn btn-success" ng-click="addPosition()" type="button">Add Position!</button>
+    </span>
+  </div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+<hr>
+
+

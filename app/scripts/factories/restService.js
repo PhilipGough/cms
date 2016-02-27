@@ -1,3 +1,6 @@
+/*
+ * Factory used to maintain some helper functions to make HTTP request
+ */
 'use strict';
 angular.module('CMS')
 

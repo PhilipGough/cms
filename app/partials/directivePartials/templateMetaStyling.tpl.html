@@ -1,0 +1,47 @@
+
+
+<div class ="row">
+  <div class="col-sm-4">
+    <label> Add optional border colour
+     <ol class="nya-bs-select" ng-change="vm.submissionChange()" ng-model="vm.brdrColor">
+       <li nya-bs-option="(key,value) in vm.borderClrOptions">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+
+  <div class="col-sm-4">
+    <label> Add optional border style
+     <ol class="nya-bs-select" ng-change="vm.submissionChange()" ng-model="vm.brdrStyle">
+       <li nya-bs-option="(key,value) in vm.borderStyleOptions">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+</div>
+  <div class="col-sm-4">
+    <label> Add optional rounding to corners
+     <ol class="nya-bs-select" ng-change="vm.submissionChange()" ng-model="vm.brdCrnrs">
+       <li nya-bs-option="(key,value) in vm.crnrOptions">
+        <!-- the text content of anchor element will be used for search -->
+        <a>
+          {{ key }}
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ol>
+  </label>
+
+</div>
+</div>
+<hr>
+
