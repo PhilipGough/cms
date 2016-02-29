@@ -59,7 +59,6 @@ angular.module('CMS.home', [])
 
   vm.pageCtrl = function() {
     $scope.pageChangeHandler = function(num) {
-    console.log('going to page ' + num);
   };
 }
 
@@ -69,6 +68,10 @@ angular.module('CMS.home', [])
    function stopLoading(){
      vm.loading = false;
    }
+
+   vm.edit = function(event) {
+    $state.go('main.edit',{obj: event,objectId: event.objectId});
+  };
 
 
   /**

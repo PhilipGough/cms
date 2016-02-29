@@ -32,7 +32,7 @@ function OfferingCtrl($scope, formBuilder) {
   // This css is always required for items
   var baseItemCss = ' rl_box_shadow1 rl_margin_top_10 ';
   vm.info = $scope.model.offerings;
-  vm.info.meta.itemCss = baseItemCss;
+  vm.info.meta.itemCss = vm.info.meta.itemCss + baseItemCss;
 
   function reset() {
   vm.mainText = '';

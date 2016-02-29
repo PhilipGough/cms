@@ -37,5 +37,15 @@ angular.module('CMS')
     });
   };
 
+  restClient.makePUTrequest = function(endpoint, payload, id) {
+    var resource = id.toString();
+    return $http({
+      method: 'put',
+      url: $rootScope.baseURL + endpoint + '/' + resource,
+      contentType: 'application/json',
+      data: payload
+    });
+  };
+
   return restClient;
 }]);

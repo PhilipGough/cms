@@ -8,6 +8,7 @@ var CMS = angular.module('CMS', [
   'pascalprecht.translate',
   'CMS.home',
   'CMS.create',
+  'CMS.edit',
   'flash',
   'ngMessages',
   'nya.bootstrap.select',

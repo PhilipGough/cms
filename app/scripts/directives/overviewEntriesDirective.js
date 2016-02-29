@@ -59,7 +59,7 @@ function EntryCtrl($scope, focus) {
   vm.textPositionOptions = {
     'Left': 'text-left',
     'Right': 'text-right',
-    'Center': 'text-centre'
+    'Center': 'text-center'
   };
 
   /*

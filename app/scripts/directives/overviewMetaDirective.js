@@ -49,5 +49,9 @@ function MetaCtrl($scope, formBuilder) {
         }
   }
 
+  vm.makeCssChange = function () {
+    vm.meta.css = vm.chosenBckColor + ' ' + vm.chosenRadius + ' b_solid';
+  };
+
 
 }

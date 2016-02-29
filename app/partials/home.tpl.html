@@ -37,7 +37,7 @@
             <td>{{event.model_type}}</td>
             <td>{{event.createdAt | date : 'd/M/yy h:mm a'}}</td>
             <td>
-              <button class="btn btn-sm btn-primary" ng-click="vm.edit()">
+              <button class="btn btn-sm btn-primary" ng-click="vm.edit(event)">
                 <i class="fa fa-pencil"></i>&nbsp; Edit
               </button>
               <button class="btn btn-sm btn-danger" ng-click="vm.delete(event)">
